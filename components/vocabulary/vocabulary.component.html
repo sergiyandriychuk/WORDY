@@ -1,0 +1,115 @@
+<div class='container'>
+
+  <div class='langs'>
+    <div class='langs__item'>
+      <h4>{{'COMPONENTS.VOCABULARY.LANG_I_LEARN' | translate}}</h4>
+      <mat-form-field>
+        <mat-select [value]='learnLang' (selectionChange)='changeLearnLang($event)'>
+          <mat-option *ngFor='let lang of learnLangs' [value]='lang.code'>
+            {{currentLang ? lang.localize[currentLang] : null}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class='langs__item'>
+      <h4>{{'COMPONENTS.VOCABULARY.MY_LANG' | translate}}</h4>
+      <mat-form-field>
+        <mat-select [value]='myLang' (selectionChange)='changeMyLang($event)'>
+          <mat-option *ngFor='let lang of myLangs' [value]='lang.code'>
+            {{currentLang ? lang.localize[currentLang] : null}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class='searchField'>
+      <mat-form-field>
+        <mat-label>
+          {{'TEXT.SEARCH' | translate}}
+        </mat-label>
+        <input
+          #searchInput
+          matInput
+          placeholder=''
+          value=''
+          (input)='search($event)'
+        >
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class='alphabet'>
+    <mat-button-toggle-group
+      #group='matButtonToggleGroup'
+      name='fontStyle'
+      aria-label='Font Style'
+      (change)='selectLetter($event)'
+      (click)='clickLetter()'
+    >
+      <mat-button-toggle *ngFor='let item of alphabets[learnLang]' [value]='item'>{{item}}</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <app-spinner *ngIf='loading'></app-spinner>
+
+  <div [hidden]='loading' class='table-wrapper'>
+    <table
+      mat-table
+      [dataSource]='vocabularyItems'
+      class='custom-table mat-elevation-z8'
+      [ngClass]="{'custom-table_empty': !vocabularyItems?.length}"
+    >
+
+      <ng-container matColumnDef='word'>
+        <th mat-header-cell *matHeaderCellDef> {{'COMPONENTS.VOCABULARY.WORDS' | translate}} </th>
+        <td mat-cell *matCellDef='let el'> {{el?.word}} </td>
+        <td mat-footer-cell *matFooterCellDef [attr.colspan]='displayedItems.length'>
+          <span class='noItems'>{{'COMPONENTS.VOCABULARY.NO_WORDS' | translate}}</span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef='translation'>
+        <th mat-header-cell *matHeaderCellDef> {{'COMPONENTS.VOCABULARY.TRANSLATIONS' | translate}} </th>
+        <td mat-cell *matCellDef='let el'>
+          <div class='translations'>
+            <span class='translations__word' *ngFor='let item of el?.translations; let idx = index'>
+              <span
+                class='translationsWord translationsWord-active'
+                [ngClass]="{'cursor-not-allowed': !isUserSubscriptionActive, 'unselectable-text': !isUserSubscriptionActive}"
+                *ngIf='item?.known'
+                (click)='removeItem(el?.uid, item?.translationId)'
+              >{{item?.word}}</span>
+              <span
+                class='translationsWord translationsWord-inactive'
+                [ngClass]="{'cursor-not-allowed': !isUserSubscriptionActive, 'unselectable-text': !isUserSubscriptionActive}"
+                *ngIf='!item?.known'
+                (click)='attachWord(el?.uid, item?.translationId)'
+              >{{item?.word}}</span>
+              <span *ngIf='el?.translations?.length - 1 !== idx'>, </span>
+            </span>
+          </div>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef='displayedItems'></tr>
+      <tr mat-row *matRowDef='let row; columns: displayedItems;'></tr>
+      <tr mat-footer-row *matFooterRowDef='displayedItems'
+          [style.display]="!vocabularyItems.length ? 'table-row' : 'none'"></tr>
+
+    </table>
+
+    <div class='paginator' [hidden]='hidePagination'>
+      <mat-paginator
+        aria-label='Select page of words'
+        [pageSizeOptions]='paginationOptions.pageSizeOptions'
+        [pageIndex]='paginationOptions.pageIndex'
+        [length]='paginationOptions.length'
+        [pageSize]='paginationOptions.pageSize'
+        [disabled]='paginationOptions.disabled'
+        [showFirstLastButtons]='paginationOptions.showFirstLastButtons'
+        [hidePageSize]='paginationOptions.hidePageSize'
+        (page)='paginationChange($event)'
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

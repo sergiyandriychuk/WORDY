@@ -1,0 +1,337 @@
+<app-spinner *ngIf='loading'></app-spinner>
+
+<ng-template [ngIf]='!loading'>
+  <app-oops *ngIf='oops'></app-oops>
+
+  <div class='container' *ngIf='!oops'>
+    <div class='billing-card' *ngIf='isSubscriptionStatusTrialing === true'>
+      <div class='billing-card__content'>
+
+        <h1 class='billing-card__title' *ngIf='userSubscriptionIsExpires'>
+          {{'COMPONENTS.BILLING.TRIAL_ENDED_SHORT' | translate}} ⏳
+        </h1>
+
+        <h1 class='billing-card__title' *ngIf='!userSubscriptionIsExpires'>
+          {{'COMPONENTS.BILLING.FREE_TRIAL' | translate}} 🎁
+        </h1>
+
+        <img class='billing-card__img' src='assets/icons/laptop-1.svg' alt='Laptop'>
+
+        <ng-template [ngIf]='!userSubscriptionIsExpires'>
+          <p class='billing-card__text' *ngIf='!isCardAttachment'>
+            🥳 {{'COMPONENTS.BILLING.THANKS' | translate}}
+            {{'COMPONENTS.BILLING.TRIAL_ENDS' | translate:{date: datePipe.transform($any(userSubscription?.nextPaymentDate), 'mediumDate', undefined, $any(localizeSvc.currentLang))} }}
+            ⏳
+            {{'COMPONENTS.BILLING.ATTACH_CARD' | translate:translateParams}} 💳
+          </p>
+          <ng-template [ngIf]='isCardAttachment'>
+            <p class='billing-card__text'>
+              🥳 {{'COMPONENTS.BILLING.THANKS' | translate}}
+              {{'COMPONENTS.BILLING.TRIAL_ENDS' | translate:{date: datePipe.transform($any(userSubscription?.nextPaymentDate), 'mediumDate', undefined, $any(localizeSvc.currentLang))} }}
+              ⏳
+              {{'COMPONENTS.BILLING.MONTHLY_CHARGING' | translate:translateParams}} 💳
+            </p>
+            <p class='billing-card__text payment-method-text'>
+              {{'COMPONENTS.BILLING.CURRENT_PAYMENT_METHOD' | translate}}&nbsp;<app-bank-card
+              [lastNumbers]='userSubscription?.cardData?.last4'
+              [cardType]='userSubscription?.cardData?.brand'
+            ></app-bank-card>
+            </p>
+          </ng-template>
+          <button
+            class='billing-card__btn btn'
+            *ngIf='!isCardAttachment'
+            mat-raised-button
+            type='button'
+            (click)='attachCard()'
+          >
+            {{'BTNS.ADD_PAYMENT_METHOD' | translate:translateParams}}
+          </button>
+          <div class='billing-card__btns' *ngIf='isCardAttachment'>
+            <button
+              class='billing-card__btn btn'
+              mat-raised-button
+              type='button'
+              (click)='attachCard()'
+            >
+              {{'BTNS.UPDATE_PAYMENT_METHOD' | translate:translateParams}}
+            </button>
+            <button
+              class='billing-card__btn btn btn_white'
+              mat-raised-button
+              type='button'
+              (click)='openConfirmationModal()'
+            >
+              {{'BTNS.CANCEL_SUBSCRIPTION' | translate}}
+            </button>
+          </div>
+        </ng-template>
+
+        <ng-template [ngIf]='userSubscriptionIsExpires'>
+          <p class='billing-card__text' *ngIf='!isCardAttachment'>
+            🥳 {{'COMPONENTS.BILLING.THANKS' | translate}}
+            {{'COMPONENTS.BILLING.TRIAL_ENDED' | translate:{date: datePipe.transform($any(userSubscription?.nextPaymentDate), 'mediumDate', undefined, $any(localizeSvc.currentLang))} }}
+            ⏳
+            {{'COMPONENTS.BILLING.ATTACH_CARD' | translate:translateParams}} 💳
+          </p>
+          <p class='billing-card__text' *ngIf='isCardAttachment'>
+            🥳 {{'COMPONENTS.BILLING.THANKS' | translate}}
+            {{'COMPONENTS.BILLING.TRIAL_ENDED' | translate:{date: datePipe.transform($any(userSubscription?.nextPaymentDate), 'mediumDate', undefined, $any(localizeSvc.currentLang))} }}
+            ⏳
+            {{'COMPONENTS.BILLING.SOON_CHARGED' | translate}} 💳
+          </p>
+          <button
+            class='billing-card__btn btn'
+            *ngIf='!isCardAttachment'
+            mat-raised-button
+            type='button'
+            (click)='attachCard()'
+          >
+            {{'BTNS.ADD_PAYMENT_METHOD' | translate:translateParams}}
+          </button>
+          <div class='billing-card__btns' *ngIf='isCardAttachment'>
+            <button
+              class='billing-card__btn btn'
+              mat-raised-button
+              type='button'
+              (click)='attachCard()'
+            >
+              {{'BTNS.UPDATE_PAYMENT_METHOD' | translate:translateParams}}
+            </button>
+            <button
+              class='billing-card__btn btn btn_white'
+              mat-raised-button
+              type='button'
+              (click)='openConfirmationModal()'
+            >
+              {{'BTNS.CANCEL_SUBSCRIPTION' | translate}}
+            </button>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+
+    <ng-template [ngIf]='isSubscriptionStatusTrialing === false'>
+
+      <h1 class='billing-title'>
+        {{'COMPONENTS.BILLING.TITLE' | translate}}
+      </h1>
+
+      <div class='payment-cards'>
+        <div class='payment-card' *ngIf='userSubscription'>
+          <h2 class='payment-card__title'>
+            {{'COMPONENTS.BILLING.CURRENT_PLAN' | translate}}
+          </h2>
+          <p class='payment-card__text'>
+            {{currentPrice}}{{userSubscription?.currency | currencySymbol}}/{{'TEXT.MONTH' | translate}}
+          </p>
+          <ng-template [ngIf]='userSubscriptionIsExpires'>
+            <h2 class='payment-card__title'>
+              {{'COMPONENTS.BILLING.EXPIRED_ON_THE' | translate}}
+            </h2>
+          </ng-template>
+          <ng-template [ngIf]='!userSubscriptionIsExpires'>
+            <h2 class='payment-card__title'
+                *ngIf='isSubscriptionStatusCancelled === true || isSubscriptionStatusPastDue === true'>
+              {{'COMPONENTS.BILLING.EXPIRES_DATE' | translate}}
+            </h2>
+            <h2 class='payment-card__title'
+                *ngIf='!(isSubscriptionStatusCancelled === true || isSubscriptionStatusPastDue === true)'>
+              {{'COMPONENTS.BILLING.NEXT_BILLING_DATE' | translate}}
+            </h2>
+          </ng-template>
+          <p class='payment-card__text'>
+            {{userSubscription.nextPaymentDate | date:'mediumDate':undefined:$any(localizeSvc.currentLang)}}
+          </p>
+        </div>
+
+        <div class='payment-card' *ngIf='isCardAttachment'>
+          <h2 class='payment-card__title'>
+            {{'COMPONENTS.BILLING.PAYMENT_METHOD' | translate}}
+          </h2>
+          <p class='payment-card__text'>
+            <app-bank-card
+              [cardType]='userSubscription?.cardData?.brand'
+              [lastNumbers]='userSubscription?.cardData?.last4'
+            ></app-bank-card>
+          </p>
+          <p class='payment-card__text'>
+            {{userSubscription?.cardData?.expYear}}/{{userSubscription?.cardData?.expMonth}}
+          </p>
+          <p class='payment-card__text'>
+            <a class='payment-card__link' href='javascript:void(0)' (click)='attachCard()'>
+              {{'BTNS.UPDATE_PAYMENT_METHOD_SHORT' | translate}}
+            </a>
+          </p>
+        </div>
+
+        <div
+          class='payment-card'
+          *ngIf='!isCardAttachment && !isSubscriptionStatusCancelled && !isSubscriptionStatusPastDue && !isSubscriptionActiveWithoutSubscribe'
+        >
+          <h2 class='payment-card__title'>
+            {{'COMPONENTS.BILLING.PAYMENT_METHOD' | translate}}
+          </h2>
+          <p class='payment-card__text payment-card__text_missing'>
+            {{'COMPONENTS.BILLING.MISSING' | translate}}
+          </p>
+          <p class='payment-card__text'>
+            <a class='payment-card__link' href='javascript:void(0)' (click)='attachCard()'>
+              {{'BTNS.ADD_PAYMENT_METHOD_SHORT' | translate}}
+            </a>
+          </p>
+        </div>
+
+        <div class='payment-card'>
+          <h2 class='payment-card__title'>
+            {{'COMPONENTS.BILLING.STATUS' | translate}}
+          </h2>
+          <p
+            class='payment-card__text payment-card__text_status'
+            *ngIf='isSubscriptionActiveWithoutSubscribe === true && !isSubscriptionStatusCancelled'
+          >
+            {{'SUBSCRIPTION_STATUS.TRIALING' | translate}}
+          </p>
+          <p class='payment-card__text payment-card__text_status'
+             *ngIf='isSubscriptionActiveWithoutSubscribe === false || (isSubscriptionActiveWithoutSubscribe === true && isSubscriptionStatusCancelled)'>
+            {{userSubscription?.status | subscriptionStatus}}
+          </p>
+          <p class='payment-card__text'>
+            <ng-template [ngIf]='isSubscriptionActiveWithoutSubscribe === true'>
+              <button
+                class='btn payment-card__btn'
+                mat-raised-button
+                type='button'
+                (click)='subscribe()'
+              >
+                {{'BTNS.SUBSCRIBE' | translate:translateParams}}
+              </button>
+            </ng-template>
+            <ng-template [ngIf]='isSubscriptionActiveWithoutSubscribe === false'>
+              <button
+                *ngIf='isSubscriptionStatusActive === true && !userSubscriptionIsExpires'
+                class='btn btn_white payment-card__btn'
+                mat-raised-button
+                type='button'
+                (click)='openConfirmationModal()'
+              >
+                {{'BTNS.CANCEL_SUBSCRIPTION' | translate}}
+              </button>
+              <button
+                *ngIf='(isSubscriptionStatusCancelled === true || isSubscriptionStatusPastDue === true) && userSubscriptionIsExpires'
+                class='btn payment-card__btn'
+                mat-raised-button
+                type='button'
+                (click)='subscribe()'
+              >
+                {{'BTNS.SUBSCRIBE' | translate:translateParams}}
+              </button>
+            </ng-template>
+          </p>
+        </div>
+      </div>
+
+      <div class='table-wrapper'>
+        <h1 class='table-wrapper__title'>
+          {{'COMPONENTS.BILLING.PAYMENT_HISTORY' | translate}}
+        </h1>
+        <table
+          mat-table
+          [dataSource]='paymentItems'
+          class='custom-table mat-elevation-z8'
+        >
+
+          <ng-container matColumnDef='date'>
+            <th mat-header-cell *matHeaderCellDef>
+              <span>
+                {{'TEXT.DATE' | translate}}
+              </span>
+            </th>
+            <td mat-cell *matCellDef='let el'>
+              <span>
+                {{el?.createdDate | date:'mediumDate':undefined:$any(localizeSvc.currentLang)}}
+              </span>
+            </td>
+            <td mat-footer-cell *matFooterCellDef [attr.colspan]='displayedItems.length'>
+              <span class='noItems'>
+                {{'COMPONENTS.BILLING.NO_PAYMENT_HISTORY' | translate}}
+              </span>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef='amount'>
+            <th mat-header-cell *matHeaderCellDef>
+              {{'COMPONENTS.BILLING.AMOUNT' | translate}}
+            </th>
+            <td mat-cell *matCellDef='let el'>
+              <span>
+                {{currentPrice}}{{el?.currency | currencySymbol}}
+              </span>
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <ng-container matColumnDef='card'>
+            <th mat-header-cell *matHeaderCellDef>
+              {{'COMPONENTS.BILLING.PAYMENT_METHOD' | translate}}
+            </th>
+            <td mat-cell *matCellDef='let el'>
+              <app-bank-card
+                [cardType]='el?.cardData?.brand'
+                [lastNumbers]='el?.cardData?.last4'
+              ></app-bank-card>
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <ng-container matColumnDef='status'>
+            <th mat-header-cell *matHeaderCellDef>
+              {{'COMPONENTS.BILLING.STATUS' | translate}}
+            </th>
+            <td mat-cell *matCellDef='let el'>
+              <span class='text-capitalize'>
+                {{ el?.status | paymentStatus }}
+              </span>
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <ng-container matColumnDef='invoice'>
+            <th mat-header-cell *matHeaderCellDef>
+              {{'COMPONENTS.BILLING.INVOICE' | translate}}
+            </th>
+            <td mat-cell *matCellDef='let el'>
+              <a class='invoice' [href]='el?.invoiceUrl' target='_blank'>
+                <app-svg-icon class='invoice__img' name='open-line'></app-svg-icon>
+                <span class='invoice__text unselectable-text'>{{'COMPONENTS.BILLING.OPEN_INVOICE' | translate}}</span>
+              </a>
+            </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef='displayedItems'></tr>
+          <tr mat-row *matRowDef='let row; columns: displayedItems;'></tr>
+          <tr mat-footer-row *matFooterRowDef='displayedItems'
+              [style.display]="!paymentItems.length ? 'table-row' : 'none'"></tr>
+
+        </table>
+
+        <div class='paginator' [hidden]='hidePagination'>
+          <mat-paginator
+            aria-label='Select page of payments'
+            [pageSizeOptions]='paginationOptions.pageSizeOptions'
+            [pageIndex]='paginationOptions.pageIndex'
+            [length]='paginationOptions.length'
+            [pageSize]='paginationOptions.pageSize'
+            [disabled]='paginationOptions.disabled'
+            [showFirstLastButtons]='paginationOptions.showFirstLastButtons'
+            [hidePageSize]='paginationOptions.hidePageSize'
+            (page)='paginationChange($event)'
+          ></mat-paginator>
+        </div>
+      </div>
+
+    </ng-template>
+  </div>
+</ng-template>

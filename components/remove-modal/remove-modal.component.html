@@ -1,0 +1,29 @@
+<div class='removeModal'>
+  <h2 class='removeModal__title' *ngIf='data?.cancelSubscription'>
+    {{'DIALOGS.INFO.REMOVE.CANCEL_SUBSCRIPTION' | translate}}
+  </h2>
+  <h2 class='removeModal__title' *ngIf='!data?.cancelSubscription'>
+    {{'DIALOGS.INFO.REMOVE.TITLE' | translate}} <span>{{data?.item}} ?</span>
+  </h2>
+  <div class='removeModal__btns'>
+    <button class='unfocusBtn' type='button'></button>
+    <button
+      class='btn btn_white'
+      mat-raised-button
+      mat-dialog-close
+      type='button'
+    >
+      <span *ngIf='data?.cancelSubscription'>{{'BTNS.NO' | translate}}</span>
+      <span *ngIf='!data?.cancelSubscription'>{{'BTNS.CANCEL' | translate}}</span>
+    </button>
+    <button
+      class='btn'
+      mat-raised-button
+      mat-dialog-close='remove'
+      type='button'
+    >
+      <span *ngIf='data?.cancelSubscription'>{{'BTNS.YES' | translate}}</span>
+      <span *ngIf='!data?.cancelSubscription'>{{'BTNS.DELETE' | translate}}</span>
+    </button>
+  </div>
+</div>

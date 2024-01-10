@@ -1,0 +1,31 @@
+<div class='selectLang'>
+  <button
+    mat-button class='selectLang__btn'
+    [matMenuTriggerFor]='menu'
+    #selectLangBtnRef
+    (menuOpened)='onMenuOpened(selectLangBtnRef)'
+  >
+    <span class='selectLang__text'>{{'COMPONENTS.SELECT_LANG.LANGUAGE' | translate}}</span>
+  </button>
+  <mat-menu
+    class='selectLang__menu'
+    #menu='matMenu'
+    backdropClass='bdClass'
+    panelClass='pClasss'
+  >
+    <button
+      mat-menu-item
+      class='selectLang__item'
+      (click)="setCurrentLanguage('uk')"
+    >
+      <span class='selectLang__itemText'>{{'COMPONENTS.SELECT_LANG.UKRAINIAN' | translate}}</span>
+    </button>
+    <button
+      mat-menu-item
+      class='selectLang__item'
+      (click)="setCurrentLanguage('en')"
+    >
+      <span class='selectLang__itemText'>{{'COMPONENTS.SELECT_LANG.ENGLISH' | translate}}</span>
+    </button>
+  </mat-menu>
+</div>

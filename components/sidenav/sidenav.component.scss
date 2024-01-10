@@ -1,0 +1,46 @@
+.sidenav-list {
+  padding-top: 22px;
+  margin-right: 16px;
+
+  &__item {
+    display: block;
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & .sidenav-link {
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+
+    &_active {
+      & .sidenav-btn {
+        background-color: var(--main-green-color);
+        color: var(--main-white-color);
+        box-shadow: var(--btn-box-shadow);
+      }
+    }
+  }
+
+  & .sidenav-icon {
+    width: 24px;
+  }
+
+  & .sidenav-text {
+    margin-left: 8px;
+    margin-bottom: 0;
+  }
+
+  & .sidenav-btn {
+    height: 40px;
+    border-top-right-radius: var(--sidenav-item-border-radious);
+    border-bottom-right-radius: var(--sidenav-item-border-radious);
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+:host {
+  --header-height: 64px;
+  padding-bottom: var(--header-height);
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--secondBgColor);
+  z-index: 10;
+  transition: box-shadow .3s;
+
+  &-shadow {
+    box-shadow: var(--mainBoxShadow);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__logo {
+    display: block;
+    height: 40px;
+  }
+
+  &_mobile {
+    & .header-menu {
+      display: block;
+    }
+  }
+}
+
+.rightBox {
+  display: flex;
+  align-items: center;
+}
+
+.userCard {
+  display: flex;
+
+  &__header {
+    display: flex;
+    align-items: center;
+
+    & img {
+      width: 36px;
+      border-radius: 50%;
+    }
+
+    & span {
+      color: var(--mainFontColor);
+      white-space: nowrap;
+      margin-left: 10px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+
+    & mat-icon {
+      width: 24px;
+      margin-right: 10px;
+    }
+  }
+
+  &__trigger {
+    width: auto;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.avatarPlug {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #3ea4e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: initial;
+  color: var(--main-white-color);
+}
+
+.header-menu {
+  display: none;
+  cursor: pointer;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}

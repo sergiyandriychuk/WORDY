@@ -1,0 +1,55 @@
+:host {
+  flex: 1;
+  display: flex;
+}
+
+.auth {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authBox {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.authForm {
+  &__title {
+    text-align: center;
+    color: var(--mainFontColor);
+    font-weight: 500;
+    font-size: 30px;
+  }
+
+  &__input {
+    --backgroundColor: transparent;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__btn {
+    width: 100%;
+    height: 50px;
+  }
+}
+
+.counter {
+  &__value {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    text-align: right;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--mainGrayColor);
+    font-size: 13px;
+
+    &-invalid {
+      color: var(--mainRedColor);;
+    }
+  }
+}

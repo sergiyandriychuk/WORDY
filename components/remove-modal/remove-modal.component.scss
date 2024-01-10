@@ -1,0 +1,14 @@
+.removeModal {
+  &__title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 24px;
+    color: var(--mainFontColor);
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

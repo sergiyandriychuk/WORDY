@@ -1,0 +1,12 @@
+<div class='simpleInput'>
+  <mat-icon *ngIf='enableMatIcon' class='simpleInput__icon'>{{matIconName}}</mat-icon>
+  <textarea
+    class='simpleInput__native'
+    [ngClass]="{'simpleInput__native-icon': enableMatIcon}"
+    autocomplete='off'
+    [formControl]='$any(inputControl)'
+    [placeholder]='placeholder'
+    (input)='inputHandler($event)'
+    (change)='changeHandler($event)'
+  ></textarea>
+</div>

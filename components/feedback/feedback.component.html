@@ -1,0 +1,46 @@
+<div class='auth'>
+  <div class='authBox'>
+    <form class='authForm' [formGroup]='feedbackForm' (ngSubmit)='submitFeedback()'>
+      <h2 class='authForm__title'>
+        {{'COMPONENTS.FEEDBACK.TITLE' | translate}}
+      </h2>
+      <app-simple-input
+        class='authForm__input'
+        matIconName='comment'
+        type='text'
+        placeholder="{{'INPUTS.SUBJECT.LABEL' | translate}}"
+        [inputControl]="feedbackForm.controls['subject']"
+      ></app-simple-input>
+      <app-simple-input
+        *ngIf="feedbackForm.controls['url']"
+        class='authForm__input'
+        matIconName='link'
+        type='text'
+        placeholder="{{'INPUTS.URL.LABEL' | translate}}"
+        [inputControl]="feedbackForm.controls['url']"
+      ></app-simple-input>
+      <div class='counter'>
+        <app-simple-textarea
+          class='authForm__input'
+          matIconName='vpn_key'
+          type='text'
+          placeholder="{{'INPUTS.MESSAGE.LABEL' | translate}}"
+          [enableMatIcon]='false'
+          [inputControl]="feedbackForm.controls['message']"
+        ></app-simple-textarea>
+        <p
+          class='counter__value'
+          [ngClass]="{'counter__value-invalid': invalidMessageLength}"
+        >{{'TEXT.CHARACTERS' | translate}} {{messageLength}}/{{maxCounterValue}}</p>
+      </div>
+      <button
+        class='btn authForm__btn mb-15px'
+        mat-raised-button
+        type='submit'
+        [disabled]='submittingFeedback || feedbackForm.invalid'
+      >
+        {{'BTNS.SUBMIT' | translate}}
+      </button>
+    </form>
+  </div>
+</div>

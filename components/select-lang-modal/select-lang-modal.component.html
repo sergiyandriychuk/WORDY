@@ -1,0 +1,16 @@
+<div class='selectLangModal'>
+  <h2 class='selectLangModal__title'>{{'COMPONENTS.SELECT_LANG.TITLE' | translate}}</h2>
+  <mat-selection-list [multiple]='false' class='langList'>
+    <mat-list-option
+      *ngFor='let lang of langs'
+      [value]='lang?.lang'
+      [selected]='currentLang === lang?.lang'
+      (click)='setCurrentLanguage(lang)'
+      class='langList__item'
+    >
+      <span>
+        {{lang?.localize && currentLang ? lang.localize[currentLang] : null}}
+      </span>
+    </mat-list-option>
+  </mat-selection-list>
+</div>

@@ -1,0 +1,18 @@
+:root {
+  --link-color: var(--mainFontColor);
+}
+
+.link-wrapper {
+  text-decoration: none;
+  color: var(--link-color);
+
+  &:hover, &:active, &:focus, &:visited, &:link {
+    color: var(--link-color);
+  }
+
+  &_underline {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class='bank-card'>
+  <ng-container [ngSwitch]='cardType'>
+    <img
+      class='bank-card__img'
+      *ngSwitchCase="'visa'"
+      src='assets/icons/cards/visa.svg'
+      alt='Visa Card'
+    >
+    <img
+      class='bank-card__img'
+      *ngSwitchCase="'mastercard'"
+      src='assets/icons/cards/mastercard.svg'
+      alt='Mastercard'
+    >
+    <app-svg-icon
+      class='bank-card__img'
+      *ngSwitchDefault
+      name='credit-card-outline'
+    ></app-svg-icon>
+  </ng-container>
+  <span class='bank-card__numbers'>*{{lastNumbers || 'xxxx'}}</span>
+</div>

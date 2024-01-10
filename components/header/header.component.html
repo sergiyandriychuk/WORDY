@@ -1,0 +1,43 @@
+<div class='header' [ngClass]="{'header-shadow': headerHasShadow, 'header_mobile': isHeaderMobile}">
+  <div class='header__content container'>
+    <button class='header-menu' mat-icon-button aria-label='Button to open or close the side menu'
+            (click)='sidenavToggle()'>
+      <mat-icon class='header-menu__icon'>menu</mat-icon>
+    </button>
+    <img class='header__logo' src='assets/icons/logo.svg' alt='Logo'>
+    <div class='rightBox'>
+      <div *ngIf='tokenSvc.userHasToken' class='userCard'>
+        <button
+          class='userCard__trigger'
+          mat-button
+          [matMenuTriggerFor]='menu'
+          #userCardBtnRef
+          (menuOpened)='onMenuOpened(userCardBtnRef)'
+        >
+          <div class='userCard__header'>
+            <img *ngIf='userAvatar' [src]='userAvatar' alt='Avatar'>
+            <div *ngIf='!userAvatar' class='avatarPlug'>
+              {{userName ? userName[0] : null}}
+            </div>
+            <span>{{userName || 'User'}}</span>
+          </div>
+        </button>
+        <mat-menu #menu='matMenu' class='userCard__menu'>
+          <button class='userCard__btn' mat-menu-item (click)='openSelectLangModal()'>
+            <div class='userCard__icon'>
+              <mat-icon>language</mat-icon>
+            </div>
+            <span>{{'COMPONENTS.HEADER.LANGUAGE' | translate}}</span>
+          </button>
+          <button class='userCard__btn' mat-menu-item (click)='logout()'>
+            <div class='userCard__icon'>
+              <mat-icon>logout</mat-icon>
+            </div>
+            <span>{{'COMPONENTS.HEADER.LOGOUT' | translate}}</span>
+          </button>
+        </mat-menu>
+      </div>
+      <app-select-lang *ngIf='!tokenSvc.userHasToken'></app-select-lang>
+    </div>
+  </div>
+</div>

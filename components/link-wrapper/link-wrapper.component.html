@@ -1,0 +1,22 @@
+<a
+  class='link-wrapper'
+  *ngIf='isUrlLink'
+  [ngClass]="{'link-wrapper_underline': underline}"
+  [href]='urlLink'
+  [target]='urlTarget'
+>
+  <ng-container [ngTemplateOutlet]='content'></ng-container>
+</a>
+
+<a
+  class='link-wrapper'
+  *ngIf='isRouterLink'
+  [ngClass]="{'link-wrapper_underline': underline}"
+  [routerLink]='routerLink'
+>
+  <ng-container [ngTemplateOutlet]='content'></ng-container>
+</a>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

@@ -1,0 +1,97 @@
+:host {
+  display: block;
+  flex: 1;
+  min-height: 300px;
+}
+
+.mat-header-cell {
+  width: 20%;
+}
+
+.payment-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+
+  & .payment-card {
+    --percent: 25%;
+    --payment-card-margin: 12px;
+
+    box-shadow: var(--primary-box-shadow);
+    border-radius: var(--primary-border-radius);
+    background-color: var(--main-white-color);
+    padding: 16px;
+    flex: 1;
+    box-sizing: border-box;
+    width: calc(var(--percent) - var(--payment-card-margin));
+    min-width: calc(var(--percent) - var(--payment-card-margin));
+    max-width: calc(var(--percent) - var(--payment-card-margin));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 154px;
+
+    &__title {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 20px;
+      color: rgba(0, 0, 0, .54);
+    }
+
+    &__text, &__title {
+      margin-bottom: 0;
+    }
+
+    &__text {
+      &_missing, &_status {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+      }
+
+      &_missing {
+        color: var(--main-red-color);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__link {
+      color: var(--main-green-color);
+    }
+
+    &__btn {
+      width: 100%;
+    }
+  }
+}
+
+.invoice {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--main-font-color);
+  outline: none;
+
+  &__img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: var(--main-green-color);
+  }
+
+  &__text {
+    white-space: nowrap;
+    margin-left: 4px;
+  }
+}
+
+.payment-method-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

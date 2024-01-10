@@ -1,0 +1,13 @@
+<mat-action-list class='sidenav-list'>
+  <a
+    *ngFor='let sidenavItem of sidenavItems'
+    class='sidenav-list__item sidenav-link'
+    [routerLink]='sidenavItem.routerLink'
+    routerLinkActive='sidenav-link_active'
+  >
+    <button class='sidenav-btn' mat-list-item (click)='hideMobileSidenav()'>
+      <app-svg-icon class='sidenav-icon' [name]='sidenavItem.icon'></app-svg-icon>
+      <h4 class='sidenav-text'>{{ sidenavItem.titleLocalizeKey | translate }}</h4>
+    </button>
+  </a>
+</mat-action-list>

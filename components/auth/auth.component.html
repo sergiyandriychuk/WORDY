@@ -1,0 +1,93 @@
+<div class='auth'>
+  <div class='authBox'>
+    <form class='authForm' *ngIf='signInForm && isLogin' [formGroup]='signInForm' (ngSubmit)='submitSignIn()'>
+      <h2 class='authForm__title'>
+        {{'COMPONENTS.LOGIN.LOGIN_TITLE' | translate}}
+      </h2>
+      <app-simple-input
+        class='authForm__input'
+        matIconName='email'
+        type='email'
+        placeholder="{{'INPUTS.EMAIL.LABEL' | translate}}"
+        [inputControl]="signInForm.controls['email']"
+      ></app-simple-input>
+      <app-simple-input
+        class='authForm__input'
+        matIconName='vpn_key'
+        type='password'
+        placeholder="{{'INPUTS.PASSWORD.LABEL' | translate}}"
+        [inputControl]="signInForm.controls['password']"
+      ></app-simple-input>
+      <button
+        class='btn authForm__btn mb-15px'
+        mat-raised-button
+        type='submit'
+        [disabled]='submittingSignIn || signInForm.invalid'
+      >
+        {{'BTNS.SIGN_IN' | translate}}
+      </button>
+      <button
+        class='btn authForm__btn'
+        mat-raised-button
+        type='button'
+        [disabled]='submittingGoogleSignIn || gettingToken'
+        (click)='submitGoogleSignIn()'
+      >
+        {{'BTNS.GOOGLE_LOGIN' | translate}}
+      </button>
+      <p
+        class='authForm__bottomText'
+        (click)="changeAuthType('register')"
+      >
+        {{'COMPONENTS.LOGIN.NO_ACCOUNT' | translate}}
+      </p>
+    </form>
+
+    <form class='authForm' *ngIf='signUpForm && isRegister' [formGroup]='signUpForm' (ngSubmit)='submitSignUp()'>
+      <h2 class='authForm__title'>
+        {{'COMPONENTS.LOGIN.NEW_USER' | translate}}
+      </h2>
+      <app-simple-input
+        class='authForm__input'
+        matIconName='person'
+        placeholder="{{'INPUTS.NAME.LABEL' | translate}}"
+        [inputControl]="signUpForm.controls['name']"
+      ></app-simple-input>
+      <app-simple-input
+        class='authForm__input'
+        matIconName='email'
+        type='email'
+        placeholder="{{'INPUTS.EMAIL.LABEL' | translate}}"
+        [inputControl]="signUpForm.controls['email']"
+      ></app-simple-input>
+      <app-simple-input
+        class='authForm__input'
+        matIconName='vpn_key'
+        type='password'
+        placeholder="{{'INPUTS.PASSWORD.LABEL' | translate}}"
+        [inputControl]="signUpForm.controls['password']"
+      ></app-simple-input>
+      <app-simple-input
+        class='authForm__input'
+        matIconName='vpn_key'
+        type='password'
+        placeholder="{{'INPUTS.REPEAT_PASSWORD.LABEL' | translate}}"
+        [inputControl]="signUpForm.controls['repeatPassword']"
+      ></app-simple-input>
+      <button
+        class='btn authForm__btn'
+        mat-raised-button
+        type='submit'
+        [disabled]='submittingSignUp || signUpForm.invalid'
+      >
+        {{'BTNS.SIGN_UP' | translate}}
+      </button>
+      <p
+        class='authForm__bottomText'
+        (click)="changeAuthType('login')"
+      >
+        {{'COMPONENTS.LOGIN.ALREADY_REGISTER' | translate}}
+      </p>
+    </form>
+  </div>
+</div>

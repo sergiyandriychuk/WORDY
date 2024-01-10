@@ -1,0 +1,38 @@
+.mat-column-translation {
+  width: 60%;
+}
+
+.searchField {
+  margin-top: 24px;
+}
+
+.alphabet {
+  margin-bottom: 17px;
+  margin-top: 3px;
+
+  & mat-button-toggle-group {
+    flex-wrap: wrap;
+    border: none;
+    padding: 2px;
+    margin-left: -2px;
+
+    & mat-button-toggle {
+      margin-left: -1px;
+      margin-top: -1px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      width: 36px;
+    }
+  }
+}
+
+.translationsWord {
+  cursor: pointer;
+
+  &-active {
+    font-weight: bold;
+  }
+
+  &-inactive {
+    color: #8f8f8f;
+  }
+}

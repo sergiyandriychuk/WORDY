@@ -1,0 +1,61 @@
+<div class='footer'>
+  <div class='footer__content container'>
+
+    <div class='widgets'>
+      <div class='widget'>
+        <p class='widget__title'>
+          {{'COMPONENTS.FOOTER.BROWSERS' | translate}}
+        </p>
+        <ul class='widget__list'>
+          <li class='widget__listItem'>
+            <p>Chrome</p>
+          </li>
+          <li class='widget__listItem'>
+            <p>Safari</p>
+          </li>
+          <li class='widget__listItem'>
+            <p>Firefox</p>
+          </li>
+          <li class='widget__listItem'>
+            <p>Opera</p>
+          </li>
+          <li class='widget__listItem'>
+            <p>Edge</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class='widget'>
+        <p class='widget__title'>
+          {{'COMPONENTS.FOOTER.CATEGORY' | translate}}
+        </p>
+        <ul class='widget__list'>
+          <li class='widget__listItem'>
+            <p>
+              {{'COMPONENTS.FOOTER.PRIVACY' | translate}}
+            </p>
+          </li>
+          <li class='widget__listItem'>
+            <p>
+              {{'COMPONENTS.FOOTER.TERMS' | translate}}
+            </p>
+          </li>
+          <li class='widget__listItem'>
+            <p>
+              <app-link-wrapper [routerLink]="['/feedback']" [underline]='true'>
+                {{'COMPONENTS.FOOTER.SUPPORT' | translate}}
+              </app-link-wrapper>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class='copyright'>
+      <p class='copyright__text'>
+        {{'COMPONENTS.FOOTER.COPYRIGHT' | translate:currentYear}}
+      </p>
+    </div>
+
+  </div>
+</div>

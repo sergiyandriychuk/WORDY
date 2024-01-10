@@ -1,0 +1,30 @@
+.searchField {
+  margin-top: 24px;
+}
+
+.alphabet {
+  margin-bottom: 17px;
+  margin-top: 3px;
+
+  & mat-button-toggle-group {
+    flex-wrap: wrap;
+    border: none;
+    padding: 2px;
+    margin-left: -2px;
+
+    & mat-button-toggle {
+      margin-left: -1px;
+      margin-top: -1px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      width: 36px;
+    }
+  }
+}
+
+.actions {
+  text-align: end;
+
+  &__icon {
+    color: #6c757d;
+  }
+}

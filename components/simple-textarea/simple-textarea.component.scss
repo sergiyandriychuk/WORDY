@@ -1,0 +1,53 @@
+:host {
+  --backgroundColor: #fff;
+  --height: 180px;
+  --border: 1px solid #ced4da;
+
+  .simpleInput {
+    position: relative;
+    width: 100%;
+
+    &__icon {
+      position: absolute;
+      top: 30px;
+      transform: translateY(-50%);
+      left: 19px;
+      font-size: 24px;
+      color: #6c757d;
+    }
+
+    &__native {
+      width: 100%;
+      display: block;
+      border: var(--border);
+      height: var(--height);
+      padding-left: 15px;
+      padding-right: 5px;
+      border-radius: var(--primary-border-radius);
+      box-shadow: none;
+      outline: none;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--mainGrayColor);
+      background-color: var(--backgroundColor);
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      box-sizing: border-box;
+      font-size: 13.333px;
+      font-family: Arial, sans-serif;
+      resize: none;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      word-break: break-all;
+
+      &-icon {
+        padding-left: 60px;
+      }
+
+      &.ng-touched.ng-dirty.ng-invalid {
+        border: 2px solid var(--mainRedColor);
+        background-color: var(--secondRedColor);
+      }
+    }
+  }
+
+}

@@ -1,0 +1,89 @@
+{
+  "appName": {
+    "message": "Wordy"
+  },
+  "appDescription": {
+    "message": "Wordy extension"
+  },
+  "myLang": {
+    "message": "My language"
+  },
+  "signInWithGoogle": {
+    "message": "Sign In with Google"
+  },
+  "logout": {
+    "message": "Logout"
+  },
+  "vocabulary": {
+    "message": "Vocabulary"
+  },
+  "language": {
+    "message": "Language"
+  },
+  "chooseLang": {
+    "message": "Choose a language"
+  },
+  "dontHaveAccount": {
+    "message": "Don't have an account?"
+  },
+  "email": {
+    "message": "Email"
+  },
+  "password": {
+    "message": "Password"
+  },
+  "signInWithEmail": {
+    "message": "Sign In with Email"
+  },
+  "loginMethods": {
+    "message": "Other login methods"
+  },
+  "signIn": {
+    "message": "Sign in"
+  },
+  "emailIsInvalid": {
+    "message": "Email is invalid!"
+  },
+  "passwordIsInvalid": {
+    "message": "Password is invalid!"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "pageLanguage": {
+    "message": "Page language is"
+  },
+  "wrongLanguage": {
+    "message": "Wrong language?"
+  },
+  "wrongLanguageTitle": {
+    "message": "Is the page language determined incorrectly?"
+  },
+  "addUrlMainText": {
+    "message": "This extension only works for the URLs that you have added to your personal URL library. "
+  },
+  "addUrlAdditionalText": {
+    "message": "Please click the button below to add more URLs to your library and have fun learning a new foreign language!"
+  },
+  "addUrlBtn": {
+    "message": "Add current website to your library"
+  },
+  "error": {
+    "message": "Error"
+  },
+  "invalidPage": {
+    "message": "This type of pages is not supported by the extension!"
+  },
+  "translationToggleText": {
+    "message": "Enable translation"
+  },
+  "sessionIsExpired": {
+    "message": "Session is expired!"
+  },
+  "unsupportedLang": {
+    "message": "The language of this page is not yet supported!"
+  },
+  "unsupportedDeterminedLang": {
+    "message": "is not supported language yet!"
+  }
+}

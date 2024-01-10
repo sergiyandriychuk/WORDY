@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang='pl'>
+
+<head>
+   <title>Wordy</title>
+   <meta charset='UTF-8'>
+   <link rel='preconnect' href='https://fonts.googleapis.com'>
+   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+   <link
+      href='https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,900&display=swap'
+      rel='stylesheet'>
+   <link href='./css/bootstrap.min.css' rel='stylesheet'>
+   <link href='./css/popup.css' rel='stylesheet'>
+</head>
+
+<body class='popupBody'>
+<header class='d-flex justify-content-between flex-nowrap header'>
+   <div class='logo'>
+      <img src='./assets/icons/logo.svg' alt='logo' class='logo__img'>
+   </div>
+   <div class='menu d-flex align-items-center'>
+
+      <div class='dropdown userCard'>
+         <button class='btn userCard__btn' type='button' id='user-card-btn'
+                 data-bs-toggle='dropdown' aria-expanded='false'>
+            <div class='userCard__header'>
+               <div class='userCard__avatar' id='user-card-avatar'></div>
+               <div class='userName' id='user-name'></div>
+               <img src='./assets/icons/settings-sharp.svg' alt='settings icon'>
+            </div>
+         </button>
+         <ul class='dropdown-menu' id='user-card-list' aria-labelledby='user-card-btn'>
+            <li class='userCard__item' id='select-lang-list-item'>
+               <a class='dropdown-item' href='#'>
+                  <img src='./assets/icons/language.svg' alt='Language'>
+                  <span id='l-language'>Language</span>
+               </a>
+            </li>
+            <li class='userCard__item' id='vocabulary-list-item' hidden>
+               <a class='dropdown-item' href='#'>
+                  <img src='./assets/icons/book-outline.svg' alt='Vocabulary'>
+                  <span id='l-vocabulary'>Vocabulary</span>
+               </a>
+            </li>
+            <li class='userCard__item' id='logout-list-item' hidden>
+               <a class='dropdown-item' href='#'>
+                  <img src='./assets/icons/log-out-outline.svg' alt='Logout'>
+                  <span id='l-logout'>Logout</span>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</header>
+
+<div class='selectLangModal' id='select-lang-modal' hidden>
+   <div class='selectLangModal__content'>
+      <h2 class='selectLangModal__title' id='l-choose-lang'>Choose a language</h2>
+      <ul class='langList' id='interface-lang-list'></ul>
+   </div>
+</div>
+
+<div class='container' id='popup-container' hidden>
+   <div id='sign-in-section' class='login' hidden>
+      <main>
+         <div id='sign-in-methods-section' hidden>
+            <button id='sign-in-with-email-btn' type='button' class='btn btn-secondary'>
+               <span id='l-email-login'>Sign In with Email</span>
+            </button>
+            <button id='sign-in-google-btn' type='button' class='btn btn-secondary'>
+               <span id='l-login'>Sign In with Google</span>
+            </button>
+         </div>
+         <div id='sign-in-email-section' hidden>
+            <form class='authForm' id='sign-in-form'>
+               <div class='mb-3'>
+                  <label class='form-label'>
+                     <span id='l-email'>Email</span>
+                     <input
+                        class='form-control'
+                        id='sign-in-email'
+                        type='email'
+                        minlength='6'
+                        maxlength='50'
+                        required
+                     >
+                  </label>
+               </div>
+               <div class='mb-3'>
+                  <label class='form-label'>
+                     <span id='l-password'>Password</span>
+                     <input
+                        class='form-control'
+                        id='sign-in-password'
+                        type='password'
+                        minlength='8'
+                        maxlength='32'
+                        required
+                        autocomplete='off'
+                     >
+                  </label>
+               </div>
+               <button id='submit-sign-in-btn' type='submit' class='btn btn-primary'>
+                  <span id='l-sign-in'>Sign in</span>
+               </button>
+               <p class='text-center'>
+                        <span class='authForm__message ' id='not-account-text'>
+                            <span id='l-not-account'>Don't have an account?</span>
+                        </span>
+               </p>
+               <p class='text-center'>
+                        <span class='authForm__message' id='login-methods' hidden>
+                            <span id='l-login-methods'>Other login methods</span>
+                        </span>
+               </p>
+            </form>
+         </div>
+      </main>
+   </div>
+
+   <div id='user-section' class='popup' hidden>
+      <div class='row'>
+         <div class='col-12 selectLang'>
+            <div class='selectLang-item'>
+               <span id='l-page-lang'>Page language is</span>
+               <select
+                  data-lang-key='FROM'
+                  id='translate-lang-select'
+                  class='form-select form-select_disabled'
+                  aria-label='lang-select'
+                  disabled
+               ></select>
+               <p>
+                        <span
+                           class='wrong-language'
+                           id='wrong-language'
+                           title='Is the page language determined incorrectly?'
+                        >
+                            <span id='l-wrong-lang'>Wrong language?</span>
+                        </span>
+               </p>
+            </div>
+            <div class='selectLang-item'>
+               <span id='l-my-lang'>My language</span>
+               <select
+                  data-lang-key='TO'
+                  id='my-lang-select'
+                  class='form-select'
+                  aria-label='lang-select'
+               ></select>
+               <p>&nbsp;</p>
+            </div>
+         </div>
+      </div>
+
+      <div class='row urls-library' id='urls-library' hidden>
+         <div class='col-12'>
+            <label class='form-label text-left' id='add-page-text'>
+               <span id='l-add-page-main-text'>This extension only works for the URLs that you have added to your personal URL library. </span>
+               <span id='add-page-second-text' hidden>
+                        <span id='l-add-page-additional-text'>Please click the button below to add more URLs to your library and have fun learning a new foreign language!</span>
+                    </span>
+            </label>
+            <button id='add-page-btn' type='button' class='btn btn_main btn-secondary add-page-btn'>
+               <span id='l-add-page-btn'>Add current URL to your library</span>
+            </button>
+            <div class='urls-library__content library-not-editable' id='add-to-library-group' hidden>
+               <div class='input-group mb-3'>
+                  <div class='input-group-prepend'>
+                            <span
+                               class='input-group-text urls-library__url'
+                               id='add-to-library-domain'
+                            ></span>
+                  </div>
+                  <input
+                     class='form-control urls-library__input'
+                     id='add-to-library-input'
+                     type='text'
+                     aria-label='The URL address of the page for translation'
+                     aria-describedby='add-page-text'
+                     autocomplete='off'
+                  >
+                  <ul class='dropdown-menu add-to-library-list' id='add-to-library-list' hidden></ul>
+                  <div class='input-group-append'>
+                     <button
+                        class='btn border urls-library__single-btn'
+                        id='add-url-btn'
+                        type='button'
+                     >
+                        <img
+                           class='urls-library__img'
+                           src='./assets/icons/check-bold.svg'
+                           alt='Add to URLs library'
+                        >
+                     </button>
+                     <button
+                        class='btn border urls-library__single-btn'
+                        id='cancel-adding-url-btn'
+                        type='button'
+                     >
+                        <img
+                           class='urls-library__img'
+                           src='./assets/icons/remove.svg'
+                           alt='Cancel adding URL to library'
+                        >
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <div class='urls-library__content library-not-editable' id='urls-library-content' hidden>
+               <div class='input-group mb-3' id='main-library-group' hidden>
+                  <div class='input-group-prepend'>
+                     <span class='input-group-text urls-library__url' id='main-library-domain'></span>
+                  </div>
+                  <input
+                     class='form-control urls-library__input'
+                     id='main-library-input'
+                     type='text'
+                     aria-label='The URL address of the page for translation'
+                     disabled
+                  >
+                  <div class='input-group-append'>
+                     <button
+                        class='btn border urls-library__btn'
+                        id='remove-from-library-btn'
+                        type='button'
+                     >
+                        <img
+                           class='urls-library__img'
+                           src='./assets/icons/remove.svg'
+                           alt='Remove from URLs library'
+                        >
+                     </button>
+                  </div>
+               </div>
+               <div class='row checkbox-box' id='translation-toggle-section' hidden>
+                  <div class='col-12'>
+                     <div class='form-check'>
+                        <input type='checkbox' class='form-check-input custom-checkbox' id='translation-toggle'>
+                        <label for='translation-toggle' class='activity-toggle' title=''>
+                                    <span class='translation-toggle-text' id='translation-toggle-text' hidden>
+                                        <span id='l-translation-toggle-text'>Enable translation</span>
+                                    </span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id='other-library-items' class='other-library-items' hidden></div>
+      </div>
+      <div class='row'>
+         <div class='col-12 inactive-subscription-section' hidden>
+            <p>Your subscription is not active. To continue learning languages with Wordy, go to our <span
+               class='billing-link' id='billing-link'>website</span> and activate your subscription.</p>
+         </div>
+      </div>
+   </div>
+
+   <div class='dialog' id='dialog' hidden>
+      <div class='dialog__content'>
+         <h2 class='dialog__title' id='dialog-title'>Title</h2>
+         <p class='dialog__message' id='dialog-message'>Message</p>
+         <button id='hide-dialog-btn' type='button' class='btn btn-secondary' hidden>
+            <span id='l-hide-dialog-btn'>Close</span>
+         </button>
+      </div>
+   </div>
+</div>
+
+<div class='container invalid-page' id='invalid-page' hidden>
+   <p class='invalid-page__text'>
+      <span id='l-invalid-page'>This type of pages is not supported by the extension!</span>
+   </p>
+</div>
+
+<div class='container invalid-page' id='unsupported-language' hidden>
+   <p class='invalid-page__text'>
+      <span id='l-unsupported-lang'>The language of this page is not yet supported!</span>
+   </p>
+</div>
+
+<div class='container invalid-page' id='unsupported-determined-language' hidden>
+   <p class='invalid-page__text'>
+      <span id='determined-lang'></span> <span
+      id='l-determined-unsupported-lang'>is not supported yet!</span><br><span
+      class='wrong-language'
+      id='wrong-language-second'
+      title='Is the page language determined incorrectly?'
+   >
+            <span id='l-wrong-lang-second'>Wrong language?</span>
+        </span>
+   </p>
+</div>
+
+<p class='version'>Wordy &copy; copyright <span id='current-year'></span></p>
+
+<template id='other-library-items-tmpl'>
+   <div class='col-12 library-not-editable'>
+      <div class='input-group mb-3'>
+         <div class='input-group-prepend'>
+            <span class='input-group-text urls-library__url'></span>
+         </div>
+         <input
+            class='form-control urls-library__input'
+            type='text'
+            aria-label='The URL address of the page for translation'
+            disabled
+         >
+         <div class='input-group-append'>
+            <button
+               class='btn btn_remove border urls-library__single-btn'
+               type='button'
+            >
+               <img
+                  class='urls-library__img'
+                  src='./assets/icons/remove.svg'
+                  alt='Remove from URLs library'
+               >
+            </button>
+         </div>
+      </div>
+      <div class='checkbox-wrapper'>
+         <input type='checkbox' class='form-check-input custom-checkbox custom-checkbox_transition'>
+         <label class='activity-toggle' title=''>
+         </label>
+      </div>
+   </div>
+</template>
+
+<script src='./scripts/bootstrap.bundle.min.js'></script>
+<script src='./scripts/utils.js'></script>
+<script src='./scripts/languages.js'></script>
+<script src='./scripts/popup.js'></script>
+
+</body>
+
+</html>

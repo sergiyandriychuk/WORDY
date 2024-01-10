@@ -1,0 +1,89 @@
+{
+  "appName": {
+    "message": "Wordy"
+  },
+  "appDescription": {
+    "message": "Wordy extensión"
+  },
+  "myLang": {
+    "message": "Mi idioma"
+  },
+  "signInWithGoogle": {
+    "message": "Inicia sesión con Google"
+  },
+  "logout": {
+    "message": "Cerrar sesión"
+  },
+  "vocabulary": {
+    "message": "Vocabulario"
+  },
+  "language": {
+    "message": "Idioma"
+  },
+  "chooseLang": {
+    "message": "Elige un idioma"
+  },
+  "dontHaveAccount": {
+    "message": "¿No tienes una cuenta?"
+  },
+  "email": {
+    "message": "Correo electrónico"
+  },
+  "password": {
+    "message": "Contraseña"
+  },
+  "signInWithEmail": {
+    "message": "Iniciar sesión con correo electrónico"
+  },
+  "loginMethods": {
+    "message": "Otros métodos de inicio de sesión"
+  },
+  "signIn": {
+    "message": "Iniciar sesión"
+  },
+  "emailIsInvalid": {
+    "message": "¡El correo electrónico es invalido!"
+  },
+  "passwordIsInvalid": {
+    "message": "¡La contraseña no es válida!"
+  },
+  "close": {
+    "message": "Cerca"
+  },
+  "pageLanguage": {
+    "message": "El idioma de la página es"
+  },
+  "wrongLanguage": {
+    "message": "¿Lenguaje equivocado?"
+  },
+  "wrongLanguageTitle": {
+    "message": "¿El idioma de la página está determinado incorrectamente?"
+  },
+  "addUrlMainText": {
+    "message": "Esta extensión solo funciona para las URL que haya agregado a su biblioteca de URL personal. "
+  },
+  "addUrlAdditionalText": {
+    "message": "¡Haga clic en el botón a continuación para agregar más URL a su biblioteca y divertirse aprendiendo un nuevo idioma extranjero!"
+  },
+  "addUrlBtn": {
+    "message": "Agregue el sitio web actual a su biblioteca"
+  },
+  "error": {
+    "message": "Error"
+  },
+  "invalidPage": {
+    "message": "¡Este tipo de páginas no es compatible con la extensión!"
+  },
+  "translationToggleText": {
+    "message": "Habilitar traducción"
+  },
+  "sessionIsExpired": {
+    "message": "¡La sesión ha caducado!"
+  },
+  "unsupportedLang": {
+    "message": "¡El idioma de esta página aún no es compatible!"
+  },
+  "unsupportedDeterminedLang": {
+    "message": "¡Aún no es un idioma compatible!"
+  }
+}

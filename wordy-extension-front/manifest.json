@@ -1,0 +1,52 @@
+{
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDescription__",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "default_locale": "pl",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkU59Kflmtm6ulLPPHeOwc3wlPiDehIaLXmfQGIVekRe0F0929J7y+aDmRC+UygSwowtL0UelAMXkl12Dbr52S5WpDh21wKn3GLHilY2xUI9WXFlysILIr3INZgHVz/WIPBdtERDEuIEhFVz9Fa6jowpY4631oAsKlbOkhqnaF14mkDKg6S38Ps4vb+aD7ErlCNt73HFLZshlHAOXsSnrMoJmoA80ysn+B6nj6SWOhuqzniFSLwyyF/RGSh8W4f3sQNznxJnmEwMkMHyolX0Z2LcVs7t+yJ4I/j08FGnxk/yckei1N2FIkKSVbzNq7Ne9nKj43ZMOSdbWtF/3KTGr4QIDAQAB",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/*",
+        "http://*/*",
+        "file:///*/*.html",
+        "file:///*/*.htm"
+      ],
+      "js": [
+        "./src/scripts/check-injection.js",
+        "./src/scripts/languages.js",
+        "./src/scripts/utils.js",
+        "./src/scripts/content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "./src/background.js"
+  },
+  "action": {
+    "default_popup": "./src/popup.html",
+    "default_title": "Wordy",
+    "default_icon": {
+      "16": "./src/assets/icons/logo_16x16_disabled.png",
+      "32": "./src/assets/icons/logo_32x32.png",
+      "48": "./src/assets/icons/logo_48x48.png",
+      "128": "./src/assets/icons/logo_128x128.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "identity",
+    "storage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://impyouridea.uk/*"
+  ],
+  "icons": {
+    "16": "./src/assets/icons/logo_16x16.png",
+    "32": "./src/assets/icons/logo_32x32.png",
+    "48": "./src/assets/icons/logo_48x48.png",
+    "128": "./src/assets/icons/logo_128x128.png"
+  }
+}

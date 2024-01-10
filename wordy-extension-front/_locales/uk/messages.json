@@ -1,0 +1,89 @@
+{
+  "appName": {
+    "message": "Wordy"
+  },
+  "appDescription": {
+    "message": "Розширення Wordy"
+  },
+  "myLang": {
+    "message": "Моя мова"
+  },
+  "signInWithGoogle": {
+    "message": "Увійти за допомогою Google"
+  },
+  "logout": {
+    "message": "Вийти"
+  },
+  "vocabulary": {
+    "message": "Словник"
+  },
+  "language": {
+    "message": "Мова"
+  },
+  "chooseLang": {
+    "message": "Виберіть мову"
+  },
+  "dontHaveAccount": {
+    "message": "Немає облікового запису?"
+  },
+  "email": {
+    "message": "Емейл"
+  },
+  "password": {
+    "message": "Пароль"
+  },
+  "signInWithEmail": {
+    "message": "Увійти за допомогою Email"
+  },
+  "loginMethods": {
+    "message": "Інші способи входу"
+  },
+  "signIn": {
+    "message": "Увійти"
+  },
+  "emailIsInvalid": {
+    "message": "Не валідний емейл!"
+  },
+  "passwordIsInvalid": {
+    "message": "Не валідний пароль!"
+  },
+  "close": {
+    "message": "Закрити"
+  },
+  "pageLanguage": {
+    "message": "Мова сторінки"
+  },
+  "wrongLanguage": {
+    "message": "Неправильна мова?"
+  },
+  "wrongLanguageTitle": {
+    "message": "Мова сторінки визначена неправильно?"
+  },
+  "addUrlMainText": {
+    "message": "Це розширення працює лише для URL-адрес, які ви додали до своєї особистої бібліотеки URL-адрес. "
+  },
+  "addUrlAdditionalText": {
+    "message": "Натисніть кнопку нижче, щоб додати більше URL-адрес до вашої бібліотеки та весело вивчати нову іноземну мову!"
+  },
+  "addUrlBtn": {
+    "message": "Додати поточний вебсайт до бібліотеки"
+  },
+  "error": {
+    "message": "Помилка"
+  },
+  "invalidPage": {
+    "message": "Цей тип сторінок не підтримується розширенням!"
+  },
+  "translationToggleText": {
+    "message": "Увімкнути переклад"
+  },
+  "sessionIsExpired": {
+    "message": "Сеанс закінчився!"
+  },
+  "unsupportedLang": {
+    "message": "Мова цієї сторінки поки що не підтримується!"
+  },
+  "unsupportedDeterminedLang": {
+    "message": "мова поки що не підтримується!"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "appName": {
+    "message": "Wordy"
+  },
+  "appDescription": {
+    "message": "Rozszerzenie Wordy"
+  },
+  "myLang": {
+    "message": "Mój język"
+  },
+  "signInWithGoogle": {
+    "message": "Zaloguj się za pomocą Google"
+  },
+  "logout": {
+    "message": "Wychodzić"
+  },
+  "vocabulary": {
+    "message": "Słownik"
+  },
+  "language": {
+    "message": "Język"
+  },
+  "chooseLang": {
+    "message": "Wybierz język"
+  },
+  "dontHaveAccount": {
+    "message": "Nie masz konta?"
+  },
+  "email": {
+    "message": "E-mail"
+  },
+  "password": {
+    "message": "Hasło"
+  },
+  "signInWithEmail": {
+    "message": "Zaloguj się za pomocą poczty e-mail"
+  },
+  "loginMethods": {
+    "message": "Inne metody logowania"
+  },
+  "signIn": {
+    "message": "Zalogować się"
+  },
+  "emailIsInvalid": {
+    "message": "Niepoprawny email!"
+  },
+  "passwordIsInvalid": {
+    "message": "Nieprawidłowe hasło!"
+  },
+  "close": {
+    "message": "Zamknąć"
+  },
+  "pageLanguage": {
+    "message": "Język strony"
+  },
+  "wrongLanguage": {
+    "message": "Niewłaściwy język?"
+  },
+  "wrongLanguageTitle": {
+    "message": "Czy język strony jest ustawiony nieprawidłowo?"
+  },
+  "addUrlMainText": {
+    "message": "To rozszerzenie działa tylko w przypadku adresów URL dodanych do osobistej biblioteki adresów URL. "
+  },
+  "addUrlAdditionalText": {
+    "message": "Kliknij poniższy przycisk, aby dodać więcej adresów URL do swojej biblioteki i baw się dobrze, ucząc się nowego języka obcego!"
+  },
+  "addUrlBtn": {
+    "message": "Dodaj witrynę do swojej biblioteki"
+  },
+  "error": {
+    "message": "Błąd"
+  },
+  "invalidPage": {
+    "message": "Ten typ stron nie jest obsługiwany przez rozszerzenie!"
+  },
+  "translationToggleText": {
+    "message": "Włącz tłumaczenie"
+  },
+  "sessionIsExpired": {
+    "message": "Sesja dobiegła końca!"
+  },
+  "unsupportedLang": {
+    "message": "Język tej strony nie jest jeszcze obsługiwany!"
+  },
+  "unsupportedDeterminedLang": {
+    "message": "język nie jest jeszcze obsługiwany!"
+  }
+}

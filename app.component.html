@@ -1,0 +1,31 @@
+<div class='page'>
+  <app-header></app-header>
+  <mat-sidenav-container
+    class='app-sidenav-container'
+    [autosize]='true'
+    [hasBackdrop]='isSidenavInMobileMode'
+    (backdropClick)='sidenavBackdropClickHandler()'
+  >
+    <mat-sidenav
+      class='app-sidenav'
+      [ngClass]="{'app-sidenav_mobile': isSidenavInMobileMode}"
+      [autoFocus]='false'
+      [disableClose]='!isSidenavInMobileMode'
+      [opened]='isSidenavInMobileMode ? tokenSvc.userHasToken && isShowMobileSidenav : tokenSvc.userHasToken'
+      [mode]="isSidenavInMobileMode ? 'over' : 'side'"
+      [fixedBottomGap]='0'
+      [fixedTopGap]='0'
+      position='start'
+      role='navigation'
+      (keydown)='sidenavKeydownHandler($event)'
+    >
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content class='app-sidenav-content' role='main'>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</div>
+
+<ngx-loading *ngIf='isShowLoader' [show]='uiSvc.isShowLoading' [config]='$any(uiSvc.loadingConfig)'></ngx-loading>

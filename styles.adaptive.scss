@@ -1,0 +1,34 @@
+.adaptive {
+  @media (max-width: 1050px) {
+    .payment-cards .payment-card {
+      --percent: 33% !important;
+    }
+  }
+
+  @media (max-width: 850px) {
+    .payment-cards .payment-card {
+      --percent: 50% !important;
+    }
+  }
+
+  @media screen and (max-width: 670px) {
+    .langs {
+      flex-direction: column;
+
+      & > div {
+        margin-left: 0;
+      }
+    }
+
+    .searchField {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .payment-cards .payment-card {
+      --percent: 100% !important;
+      --payment-card-margin: 0px !important;
+    }
+  }
+}

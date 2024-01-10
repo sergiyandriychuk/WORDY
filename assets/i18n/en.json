@@ -1,0 +1,171 @@
+{
+  "APP": {
+    "TITLE": "Wordy Cabinet"
+  },
+  "INPUTS": {
+    "EMAIL": {
+      "LABEL": "Email"
+    },
+    "PASSWORD": {
+      "LABEL": "Password"
+    },
+    "NAME": {
+      "LABEL": "Name"
+    },
+    "REPEAT_PASSWORD": {
+      "LABEL": "Repeat password"
+    },
+    "SUBJECT": {
+      "LABEL": "Subject"
+    },
+    "URL": {
+      "LABEL": "URL"
+    },
+    "MESSAGE": {
+      "LABEL": "Message"
+    }
+  },
+  "BTNS": {
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "SIGN_IN": "Sign in",
+    "SIGN_UP": "Sign up",
+    "GOOGLE_LOGIN": "Login with Google",
+    "SUBMIT": "Submit",
+    "SUBSCRIBE": "Subscribe {{price}}{{currency}}/month",
+    "ADD_PAYMENT_METHOD": "Add payment method {{price}}{{currency}}/month",
+    "ADD_PAYMENT_METHOD_SHORT": "Add payment method",
+    "UPDATE_PAYMENT_METHOD": "Update payment method {{price}}{{currency}}/month",
+    "UPDATE_PAYMENT_METHOD_SHORT": "Update payment method",
+    "CANCEL_SUBSCRIPTION": "Cancel subscription",
+    "YES": "Yes",
+    "NO": "No"
+  },
+  "COMPONENTS": {
+    "HEADER": {
+      "LOGOUT": "Logout",
+      "LANGUAGE": "Language"
+    },
+    "VOCABULARY": {
+      "WORDS": "Words",
+      "TRANSLATIONS": "Translations",
+      "MY_LANG": "My language",
+      "LANG_I_LEARN": "Language I learn",
+      "NO_WORDS": "There are no words in the dictionary."
+    },
+    "LOGIN": {
+      "NO_ACCOUNT": "Don't have an account?",
+      "ALREADY_REGISTER": "Already Registered?",
+      "NEW_USER": "Register New User",
+      "LOGIN_TITLE": "Login to Your Account"
+    },
+    "SELECT_LANG": {
+      "TITLE": "Choose a language",
+      "LANGUAGE": "Language",
+      "ENGLISH": "English",
+      "UKRAINIAN": "Ukrainian"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "Copyright © {{year}} Wordy. All rights Reserved.",
+      "BROWSERS": "Browsers",
+      "CATEGORY": "Category",
+      "PRIVACY": "Privacy & Policy",
+      "TERMS": "Terms & Condition",
+      "SUPPORT": "Support"
+    },
+    "FEEDBACK": {
+      "TITLE": "Feedback",
+      "SUBJECT_TEXT": "The page language is determined incorrectly",
+      "MESSAGE_TEXT": "The language on this page is incorrect. Please fix this."
+    },
+    "URLS_LIBRARY": {
+      "URLS": "URLs",
+      "TRANSLATION": "Translation",
+      "NO_ITEMS": "There are no URL in the URLs library."
+    },
+    "SIDENAV": {
+      "VOCABULARY": "Vocabulary",
+      "URLS_LIBRARY": "URLs Library",
+      "BILLING": "Billing"
+    },
+    "BILLING": {
+      "TITLE": "Billing",
+      "THANKS": "Thank you for using Wordy.",
+      "TRIAL_ENDS": "The trial period ends on {{date}}.",
+      "CURRENT_PLAN": "Current plan",
+      "NEXT_BILLING_DATE": "Next billing date",
+      "PAYMENT_METHOD": "Payment method",
+      "AMOUNT": "Amount",
+      "STATUS": "Status",
+      "NO_PAYMENT_HISTORY": "There is no payment history.",
+      "EXPIRES_DATE": "Expires date",
+      "FREE_TRIAL": "Free trial",
+      "INVOICE": "Invoice",
+      "OPEN_INVOICE": "Open invoice",
+      "ATTACH_CARD": "If you want to continue learning languages with Wordy, you must attach your card for a monthly subscription of {{price}}{{currency}}/month.",
+      "MONTHLY_CHARGING": "After the trial period, your card will be charged {{price}}{{currency}} per month. Make sure you have the required amount on your card. You can cancel your subscription at any time.",
+      "TRIAL_ENDED": "The trial period ended on {{date}}.",
+      "TRIAL_ENDED_SHORT": "The trial period has ended",
+      "CURRENT_PAYMENT_METHOD": "Current payment method",
+      "SOON_CHARGED": "Your card will soon be charged to activate your monthly subscription, but don't worry, you can use Wordy right now.",
+      "PAYMENT_HISTORY": "Payment history and invoicing",
+      "MISSING": "Missing",
+      "EXPIRED_ON_THE": "Expired on the"
+    },
+    "OOPS": {
+      "TITLE": "Oops... Something went wrong."
+    }
+  },
+  "DIALOGS": {
+    "INFO": {
+      "REMOVE": {
+        "TITLE": "Are you really want to delete the",
+        "CANCEL_SUBSCRIPTION": "Are you really want to cancel subscription?"
+      }
+    },
+    "ERROR": {
+      "GET_WORDS": {
+        "TITLE": "Error while receiving words!"
+      },
+      "AUTH": {
+        "TITLE": "Error during authentication."
+      },
+      "GETTING_TOKEN": {
+        "TITLE": "An error occurred while obtaining an access token."
+      },
+      "INVALID_SUBSCRIPTION_LINK": {
+        "TITLE": "Subscription link is invalid!"
+      },
+      "INVALID_CARD_ATTACHMENT_LINK": {
+        "TITLE": "Invalid card attachment link!"
+      },
+      "INVALID_PAYMENT_ITEMS": {
+        "TITLE": "Payment items is invalid!"
+      },
+      "SUBSCRIPTION_STATUS_UNKNOWN": {
+        "TITLE": "Subscription status unknown!"
+      },
+      "INVALID_NEXT_PAYMENT_DATE": {
+        "TITLE": "Next payment date is invalid!"
+      }
+    }
+  },
+  "PAYMENT_STATUS": {
+    "PAID": "Paid",
+    "OPEN": "Open",
+    "FAILED": "Failed"
+  },
+  "SUBSCRIPTION_STATUS": {
+    "TRIALING": "Trialing",
+    "ACTIVE": "Active",
+    "CANCELED": "Canceled",
+    "PAST_DUE": "Past due"
+  },
+  "TEXT": {
+    "ITEMS": "Items per page",
+    "SEARCH": "Search",
+    "CHARACTERS": "characters",
+    "MONTH": "month",
+    "DATE": "Date"
+  }
+}

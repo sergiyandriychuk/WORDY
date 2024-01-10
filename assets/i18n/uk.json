@@ -1,0 +1,171 @@
+{
+  "APP": {
+    "TITLE": "Wordy Кабінет"
+  },
+  "INPUTS": {
+    "EMAIL": {
+      "LABEL": "Емейл"
+    },
+    "PASSWORD": {
+      "LABEL": "Пароль"
+    },
+    "NAME": {
+      "LABEL": "Ім'я"
+    },
+    "REPEAT_PASSWORD": {
+      "LABEL": "Повторіть пароль"
+    },
+    "SUBJECT": {
+      "LABEL": "Тема"
+    },
+    "URL": {
+      "LABEL": "URL адреса"
+    },
+    "MESSAGE": {
+      "LABEL": "Повідомлення"
+    }
+  },
+  "BTNS": {
+    "CANCEL": "Скасувати",
+    "DELETE": "Видалити",
+    "SIGN_IN": "Увійти",
+    "SIGN_UP": "Зареєструватися",
+    "GOOGLE_LOGIN": "Увійти за допомогою Google",
+    "SUBMIT": "Надіслати",
+    "SUBSCRIBE": "Підписатися {{price}}{{currency}}/місяць",
+    "ADD_PAYMENT_METHOD": "Додати спосіб оплати {{price}}{{currency}}/місяць",
+    "ADD_PAYMENT_METHOD_SHORT": "Додати спосіб оплати",
+    "UPDATE_PAYMENT_METHOD": "Оновити спосіб оплати {{price}}{{currency}}/місяць",
+    "UPDATE_PAYMENT_METHOD_SHORT": "Оновити спосіб оплати",
+    "CANCEL_SUBSCRIPTION": "Скасувати підписку",
+    "YES": "Так",
+    "NO": "Ні"
+  },
+  "COMPONENTS": {
+    "HEADER": {
+      "LOGOUT": "Вихід",
+      "LANGUAGE": "Мова"
+    },
+    "VOCABULARY": {
+      "WORDS": "Слова",
+      "TRANSLATIONS": "Переклади",
+      "MY_LANG": "Моя мова",
+      "LANG_I_LEARN": "Мова, яку я вивчаю",
+      "NO_WORDS": "Немає слів у словнику."
+    },
+    "LOGIN": {
+      "NO_ACCOUNT": "Немає облікового запису?",
+      "ALREADY_REGISTER": "Вже зареєстровані?",
+      "NEW_USER": "Зареєструвати нового користувача",
+      "LOGIN_TITLE": "Увійдіть до свого аккаунта"
+    },
+    "SELECT_LANG": {
+      "TITLE": "Виберіть мову",
+      "LANGUAGE": "Мова",
+      "ENGLISH": "Англійська",
+      "UKRAINIAN": "Українська"
+    },
+    "FOOTER": {
+      "COPYRIGHT": "Copyright © {{year}} Wordy. All rights Reserved.",
+      "BROWSERS": "Браузери",
+      "CATEGORY": "Категорія",
+      "PRIVACY": "Політика конфіденційності",
+      "TERMS": "Правила та умови",
+      "SUPPORT": "Підтримка"
+    },
+    "FEEDBACK": {
+      "TITLE": "Зворотній зв'язок",
+      "SUBJECT_TEXT": "Невірно визначена мова сторінки",
+      "MESSAGE_TEXT": "Мова на цій сторінці визначена неправильно. Будь ласка, виправте це."
+    },
+    "URLS_LIBRARY": {
+      "URLS": "URL адреси",
+      "TRANSLATION": "Переклад",
+      "NO_ITEMS": "У бібліотеці URL-адрес немає URL-адрес."
+    },
+    "SIDENAV": {
+      "VOCABULARY": "Словник",
+      "URLS_LIBRARY": "Бібліотека URL адрес",
+      "BILLING": "Оплата"
+    },
+    "BILLING": {
+      "TITLE": "Оплата",
+      "THANKS": "Дякуємо, що користуєтеся Wordy.",
+      "TRIAL_ENDS": "Пробний період закінчується {{date}}",
+      "CURRENT_PLAN": "Поточний план",
+      "NEXT_BILLING_DATE": "Дата наступного платежу",
+      "PAYMENT_METHOD": "Спосіб оплати",
+      "AMOUNT": "Сума",
+      "STATUS": "Статус",
+      "NO_PAYMENT_HISTORY": "Історія платежів відсутня.",
+      "EXPIRES_DATE": "Дата завершення підписки",
+      "FREE_TRIAL": "Безкоштовне пробний період",
+      "INVOICE": "Інвойс",
+      "OPEN_INVOICE": "Відкрити інвойс",
+      "ATTACH_CARD": "Якщо ви хочете продовжити вивчати мови з Wordy, вам потрібно додати свою картку для щомісячної підписки {{price}}{{currency}}/місяць.",
+      "MONTHLY_CHARGING": "Після пробного періоду з вашої картки стягуватиметься {{price}}{{currency}} на місяць. Переконайтеся, що на вашій картці є необхідна сума. Ви можете будь-коли скасувати підписку.",
+      "TRIAL_ENDED": "Пробний період завершився {{date}}.",
+      "TRIAL_ENDED_SHORT": "Пробний період завершився",
+      "CURRENT_PAYMENT_METHOD": "Спосіб оплати",
+      "SOON_CHARGED": "Незабаром з вашої картки буде стягнуто плату за активацію місячної підписки, але не хвилюйтеся, ви можете використовувати Wordy прямо зараз.",
+      "PAYMENT_HISTORY": "Історія платежів і виставлення рахунків",
+      "MISSING": "Відсутній",
+      "EXPIRED_ON_THE": "Темін дії минув"
+    },
+    "OOPS": {
+      "TITLE": "Ой... Щось пішло не так."
+    }
+  },
+  "DIALOGS": {
+    "INFO": {
+      "REMOVE": {
+        "TITLE": "Ви дійсно хочете видалити",
+        "CANCEL_SUBSCRIPTION": "Ви дійсно хочете скасувати підписку?"
+      }
+    },
+    "ERROR": {
+      "GET_WORDS": {
+        "TITLE": "Помилка під час отримання слов!"
+      },
+      "AUTH": {
+        "TITLE": "Помилка під час автентифікації."
+      },
+      "GETTING_TOKEN": {
+        "TITLE": "Помилка під час отримання токена доступу."
+      },
+      "INVALID_SUBSCRIPTION_LINK": {
+        "TITLE": "Посилання на підписку недійсне!"
+      },
+      "INVALID_CARD_ATTACHMENT_LINK": {
+        "TITLE": "Посилання на прив'язку картки недійсне!"
+      },
+      "INVALID_PAYMENT_ITEMS": {
+        "TITLE": "Платежі недійсні!"
+      },
+      "SUBSCRIPTION_STATUS_UNKNOWN": {
+        "TITLE": "Невідомий статус підписки!"
+      },
+      "INVALID_NEXT_PAYMENT_DATE": {
+        "TITLE": "Дата наступного платежу невалідна!"
+      }
+    }
+  },
+  "PAYMENT_STATUS": {
+    "PAID": "Оплачено",
+    "OPEN": "Відкрито",
+    "FAILED": "Невдача"
+  },
+  "SUBSCRIPTION_STATUS": {
+    "TRIALING": "Пробний період",
+    "ACTIVE": "Активний",
+    "CANCELED": "Скасовано",
+    "PAST_DUE": "Прострочено"
+  },
+  "TEXT": {
+    "ITEMS": "Елементів на сторінці",
+    "SEARCH": "Пошук",
+    "CHARACTERS": "символів",
+    "MONTH": "місяць",
+    "DATE": "Дата"
+  }
+}
